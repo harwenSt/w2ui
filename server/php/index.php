@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../../dist/w2ui.min.css" />
-    <script type="text/javascript" src="../../libs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../libs/jquery/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="../../dist/w2ui.min.js"></script>
 </head>
 <body>
@@ -23,10 +23,14 @@ $(function () {
             toolbarDelete : true
         },
         columns: [
-            { field: 'fname', caption: 'First Name', size: '150px', searchable: true },
-            { field: 'lname', caption: 'Last Name', size: '150px', searchable: true },
-            { field: 'email', caption: 'Email', size: '100%', searchable: true },
-            { field: 'login', caption: 'Login', size: '150px', searchable: true }
+      			{ field: 'inum', caption: 'i-Nummer', size: '150px', searchable: true },      
+                  { field: 'fname', caption: 'First Name', size: '150px', searchable: true },
+                  { field: 'lname', caption: 'Last Name', size: '150px', searchable: true },
+                  { field: 'email', caption: 'Email', size: '150px', searchable: true },
+                  { field: 'tele', caption: 'Telefon', size: '150px', searchable: false },
+                  { field: 'po', caption: 'PO', size: '50px', searchable: false },
+                  { field: 'hu11', caption: 'Hu 11', size: '100px', searchable: false },
+                  { field: 'bemerk', caption: 'Bemerkung', size: '100%', searchable: false }
         ],
         onAdd: function (event) {
             editUser(0);
@@ -55,13 +59,17 @@ $(function () {
             '    <div class="w2ui-field">'+
             '        <input name="email" type="text" size="35"/>'+
             '    </div>'+
-            '    <div class="w2ui-label">Login:</div>'+
+            '    <div class="w2ui-label">PO:</div>'+
             '    <div class="w2ui-field">'+
-            '        <input name="login" type="text" size="25"/>'+
+            '        <input name="po" type="text" size="25"/>'+
             '    </div>'+
-            '    <div class="w2ui-label">Password:</div>'+
+            '    <div class="w2ui-label">Bemerkung:</div>'+
             '    <div class="w2ui-field">'+
-            '        <input name="password" type="password" size="25"/>'+
+            '        <input name="bemerk" type="test" size="25"/>'+
+            '    </div>'+
+            '	 <div class="w2ui-label">Hausubung SB 1:</div>'+
+            '    <div class="w2ui-input">'+
+            '        <input name="hu11" type="checkbox" />'+
             '    </div>'+
             '</div>'+
             '<div class="w2ui-buttons">'+
@@ -71,9 +79,10 @@ $(function () {
         fields: [
             { name: 'fname', type: 'text', required: true },
             { name: 'lname', type: 'text', required: true },
-            { name: 'email', type: 'email' },
-            { name: 'login', type: 'text', required: true },
-            { name: 'password', type: 'text', required: false },
+            { name: 'email', type: 'email',required: true  },
+            { name: 'po', type: 'text', required: true },
+            { name: 'hu11', type: 'checkbox', required: false },
+
         ],
         actions: {
             "save": function () { 

@@ -4,7 +4,7 @@ require("w2db.php");
 require("w2lib.php");
 
 $db = new dbConnection("mysql");
-$db->connect("127.0.0.1", "root", "", "test", "3306");
+$db->connect("127.0.0.1", "root", "root", "test", "3306");
 
 switch ($_REQUEST['cmd']) {
 
@@ -21,15 +21,15 @@ switch ($_REQUEST['cmd']) {
         break;
 
     case 'get-record':
-        $sql = "SELECT userid, fname, lname, email, login, password
+         $sql = "SELECT inum, fname, lname, email, tele, po, hu11 
                 FROM users 
-                WHERE userid = ".$_REQUEST['recid'];
+                WHERE inum = ".$_REQUEST['recid'];
         $res = $w2grid->getRecord($sql);
         $w2grid->outputJSON($res);
         break;
 
     case 'save-record':
-        $res = $w2grid->saveRecord('users', 'userid', $_REQUEST);
+        $res = $w2grid->saveRecord('users', 'inum', $_REQUEST);
         $w2grid->outputJSON($res);
         break;
 
